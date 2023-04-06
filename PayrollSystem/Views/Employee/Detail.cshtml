@@ -1,0 +1,55 @@
+﻿@model EmployeeDetailViewModel
+
+<div class="col-md-12 grid-margin grid-margin-md-0">
+    <div class="card">
+        <div class="card-body">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a asp-controller="Home" asp-action="Index">
+                            Home
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a asp-controller="Employee" asp-action="Index">
+                            Employee list
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item" active aria-current="page">
+                        Detail Employee
+                    </li>
+                </ol>
+            </nav><br /><br />
+            <div class="wrap d-flex justify-content-start justify-content-sm-left flex-wrap">
+                <div class="wrap align-items-center ml-5">
+                    <p class="font-weight-bold text-success" style="font-size:20px">@Model.FullName</p>
+                    <p class="font-weight-normal">Role: @Model.Role</p>
+                    <p class="font-weight-normal">Gender: @Model.Gender</p>
+                    <p class="font-weight-normal">Date of birth: @Model.DateOfBirth.ToString("dd/MM/yyyy")</p>
+                    <p class="font-weight-normal">Employee No: @Model.EmployeeNo</p>
+                    <p class="font-weight-normal">NI No: @Model.NationalInsuranceNo</p>
+                    <p class="font-weight-normal">Email: <a>@Model.Email</a></p>
+                    <br />
+                    <p class="font-weight-bold">Pay & Deductions</p>
+                    <hr style="background-color: crimson" />
+                    <p class="font-weight-normal">Payment Method: @Model.PaymentMethod</p>
+                    <p class="font-weight-normal"><i class="fas fa-envelope" style="margin-right:auto.6em; color: coral"></i><a href="mailto:@Model.Email?subject-Payslip&body=Attached is your payslip.">Send Payslip</a></p>
+                    <br />
+                    <p class="font-weight-bold">Address</p>
+                    <hr style="background-color: crimson" />
+                    <p class="font-weight-normal">Address: @Model.Address</p>
+                    <p class="font-weight-normal">City: @Model.City</p>
+                    <p class="font-weight-normal">PostCode: @Model.PostCode</p>
+                    <br />
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
